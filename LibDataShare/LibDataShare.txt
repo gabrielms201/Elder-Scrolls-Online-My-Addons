@@ -1,0 +1,10 @@
+## Title: LibDataShare
+## Author: |cFFFF00andy.s|r
+## Version: 0.0.1
+## AddOnVersion: 1
+## APIVersion: 101032 101033
+## OptionalDependsOn: LibMapPing RaidNotifier BanditsUserInterface FoundryTacticalCombat TaosGroupTools POC LibGroupSocket
+## IsLibrary: true
+
+LibDataShare.lua
+Maps.lua

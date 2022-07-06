@@ -1,0 +1,166 @@
+; This Add-on is not created by, affiliated with or sponsored by ZeniMax Media
+; Inc. or its affiliates. The Elder Scrolls and related logos are registered
+; trademarks or trademarks of ZeniMax Media Inc. in the United States and/or
+; other countries. All rights reserved.
+; https://account.elderscrollsonline.com/add-on-terms
+
+## Title: Character Knowledge
+## Description: Tracks the knowledge of recipes, furnishing plans, and motifs across different characters, accounts, and servers.
+## Author: @code65536
+## Version: 1.3.7
+## APIVersion: 101034
+## SavedVariables: CharacterKnowledgeSavedVariables
+## DependsOn: LibCharacterKnowledge>=8 LibExtendedJournal>=9
+## OptionalDependsOn: AdvancedFilters LibAddonMenu-2.0
+
+l10n/default.lua
+l10n/$(language).lua
+
+CharacterKnowledge.lua
+Browser.xml
+Browser.lua
+Tooltip.lua
+AdvancedFiltersPlugin.lua
+Bindings.xml
+
+; Changelog:
+;
+; Version 1.3.7 (2022/06/06)
+; * Updated French localization by @XXXspartiateXXX
+;
+; Version 1.3.6 (2022/04/19)
+; * Added support for Update 34 (High Isle)
+;
+; Version 1.3.5 (2022/04/11)
+; * Fixed the double-pluralization of motif chapter names resulting from ZOS
+;   pre-pluralizing the English SI_ITEMSTYLECHAPTER* strings in the ESO-7.3.7
+;   update
+;
+; Version 1.3.4 (2022/03/30)
+; * The motif browser will now show an additional tooltip for the style material
+;   associated with a motif
+;
+; Version 1.3.3 (2022/03/09)
+; * Internal code restructuring
+;
+; Version 1.3.2 (2022/03/02)
+; * LibCharacterKnowledge updated to version 1.4.0
+;
+; Version 1.3.1 (2022/02/25)
+; * Fixed an issue that was causing the preloaded motif information for the
+;   upcoming Update 33 to interfere with the chapter information for the Worm
+;   Cult motif in the current Update 32
+;
+; Version 1.3.0 (2022/02/17)
+; * The "-" prefix can now be used in the search filter to exclude a search term
+;   - For example, searching for "chair -orcish" will find furnishing plans for
+;     all chairs that are not Orcish
+; * Added support for Update 33 (Ascending Tide)
+; * Added Russian localization by GJSmoker
+; * Updated French localization by @jakez31
+;
+; Version 1.2.12 (2021/10/10)
+; * Fixed an issue where the display of "pinned" characters for chaptered motif
+;   knowledge was not respecting character tracking settings
+;
+; Version 1.2.11 (2021/10/01)
+; * One of the two different versions of "Diagram: Dwarven Pipeline Cap, Sealed"
+;   has been removed from the furnishing plan browser, because this version was
+;   removed from the game's loot table in Update 17
+;
+; Version 1.2.10 (2021/09/28)
+; * Added support for Update 32 (The Deadlands)
+;
+; Version 1.2.9 (2021/08/05)
+; * Sorting by the character ratio column in the browser UI will now take into
+;   consideration the total number of tracked characters
+;
+; Version 1.2.8 (2021/08/02)
+; * LibCharacterKnowledge updated to version 1.3.4; fixed a settings UI issue
+;
+; Version 1.2.7 (2021/07/14)
+; * Fixed a regression with the listing of the Ancestral Akaviri motif
+;
+; Version 1.2.6 (2021/07/14)
+; * Added support for Update 31 (Waking Flame)
+;
+; Version 1.2.5 (2021/06/03)
+; * LibCharacterKnowledge updated to version 1.3.1; corrected the number
+;   associated with the Thorn Legion crafting motif style
+;
+; Version 1.2.4 (2021/05/20)
+; * LibCharacterKnowledge updated to version 1.3.0; improved the data encoding
+;   format used by the export/import data sharing feature
+;
+; Version 1.2.3 (2021/05/12)
+; * Improved the handling of quest reward items
+;
+; Version 1.2.2 (2021/05/03)
+; * The new setting introduced in version 1.2.1 for the number of "pinned"
+;   characters is now a server-specific setting rather than a global
+;   installation-wide setting
+;
+; Version 1.2.1 (2021/05/03)
+; * The Advanced Filters plugin can now filter by account
+; * It is now possible to configure the number of high-priority "pinned"
+;   characters whose detailed chapter knowledge information is displayed in the
+;   tooltips of chaptered motifs, in addition to that of the current character;
+;   originally, this was hard-coded to one
+; * LibCharacterKnowledge updated to version 1.2.0
+;
+; Version 1.2.0 (2021/05/02)
+; * Revamped the display of motifs in the browser UI; this was done to address a
+;   number of issues:
+;   - Inconsistent formats of item names interfering with sort (French version)
+;   - Inaccuracies in the in-game names of motif items (French version)
+;   - New motifs that lack a full book item for use in the browser listing
+;     (e.g., Ancestral Akaviri)
+;   - The inability to sort by the name of the motif (the motif number was not
+;     in a separate column, so sorting was possible only on the motif number and
+;     not the name of the style)
+;
+; Version 1.1.8 (2021/04/20)
+; * Added support for Update 30 (Blackwood)
+;
+; Version 1.1.7 (2021/03/16)
+; * LibCharacterKnowledge updated to version 1.0.6
+;
+; Version 1.1.6 (2021/03/09)
+; * LibCharacterKnowledge updated to version 1.0.5
+;
+; Version 1.1.5 (2021/03/04)
+; * LibCharacterKnowledge updated to version 1.0.4
+;
+; Version 1.1.4 (2021/02/28)
+; * It is now possible for external addons to add context menu items to this
+;   addon's browser UI
+; * LibExtendedJournal updated to version 1.1.0
+;
+; Version 1.1.3 (2021/02/27)
+; * LibCharacterKnowledge updated to version 1.0.3
+;
+; Version 1.1.2 (2021/02/26)
+; * Added French localization by @jakez31
+; * LibCharacterKnowledge updated to version 1.0.2
+;
+; Version 1.1.1 (2021/02/26)
+; * Browser: To improve clarity, recipes and furnishing plans will now be listed
+;   by their resulting crafted items, thus hiding the prefix (i.e., "Recipe",
+;   "Praxis", etc. will now be hidden); for furnishing plans, the hidden prefix
+;   can still be matched in the search filter
+; * Browser: Fixed an issue causing the "-" special search term to exclude
+;   partially-completed motif styles
+;
+; Version 1.1.0 (2021/02/25)
+; * Browser: Since special provisioning recipes are level-agnostic, the level
+;   information for these recipes have been replaced with sourcing information
+; * Browser: For recipes and furnishing plans, it is now possible to link the
+;   resulting crafted items in chat, via the right-click context menu
+; * Browser: "+" or "-" can now be used as special search terms to filter for
+;   known and unknown items, respectively; for example, "desk +" can be used to
+;   find all known desk plans, "ambrosia -" can be used to find all unknown
+;   ambrosia recipes, and "+" by itself will hide all unknown items
+; * LibCharacterKnowledge updated to version 1.0.1
+;
+; Version 1.0.0 (2021/02/25)
+; * Initial version

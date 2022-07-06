@@ -1,0 +1,17 @@
+## Title: Dressing Room
+## APIVersion: 101033
+## Author: |cFFC300@amuridee|r
+## Version: 0.6.5
+## SavedVariables: DressingRoomSavedVariables
+## DependsOn: LibAddonMenu-2.0
+
+WorkQueue.lua
+InventoryWatcher.lua
+DressingRoom.lua
+DressingRoomUI.lua
+GearMarkers.lua
+
+lang/en.lua
+lang/$(language).lua
+
+bindings.xml
